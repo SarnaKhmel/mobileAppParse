@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 
+import android.widget.Button;
 import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<ParseItem> parseItems = new ArrayList<>();
     private ProgressBar progressBar;
 
+    Button buttonAnalyse;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +49,17 @@ public class MainActivity extends AppCompatActivity {
 
         Content content = new Content();
         content.execute();
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        buttonAnalyse = (Button) findViewById(R.id.buttonAnalyse);
+        buttonAnalyse.setOnClickListener((View.OnClickListener) this);
+
     }
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -159,5 +172,21 @@ public class MainActivity extends AppCompatActivity {
 
             return null;
         }
+
+
+
+
     }
+
+
+    public void onCreate(@org.jetbrains.annotations.NotNull View v) {
+        switch (v.getId()) {
+            case R.id.buttonAnalyse:
+                // TODO Call second activity
+                break;
+            default:
+                break;
+        }
+    }
+
 }
